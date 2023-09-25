@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+        <script>
+
+        function click_calcular() {
+            let valorA = document.getElementById("ValorA").value
+
+            let valorB = document.getElementById("ValorB").value
+
+            let valorC = document.getElementById("ValorC").value
+
+            let delta = (Number(valorB) ** 2) -4 * (Number(valorA) * Number(valorC))
+
+            if(valorA == ""){
+                alert(`Informe o valor A`);
+            }
+            else if(valorB == ""){
+                alert(`Informe o Valor B`);
+            }
+            else if(valorC == ""){
+                alert(`Informe o Valor C`);
+            }
+            else if(delta < 0){
+                alert(`Delta menor que 0, informe outros valores!`);
+            }
+            else if(delta == 0){
+                let soma = (-(valorB) + Math.sqrt(delta)) / (2 * (valorA))
+                document.getElementById("Soma").innerHTML = `<h3> X' = ${soma} </h3>`;
+            }
+            else{
+                let soma = (-(valorB) + Math.sqrt(delta)) / (2 * (valorA))
+                let somaa = (-(valorB) - Math.sqrt(delta)) / (2 * (valorA))
+                document.getElementById("Soma").innerHTML = `<h3> X' = ${soma} </h3>`;
+                document.getElementById("Somaa").innerHTML = `<h3> X'' = ${somaa} </h3>`;
+            }
+        }
+
+        function click_limpar() {
+            document.getElementById("ValorA").value = "";
+            document.getElementById("ValorB").value = "";
+            document.getElementById("ValorC").value = "";
+            document.getElementById("Soma").innerHTML = "";
+            document.getElementById("Somaa").innerHTML = "";
+        }
+    </script>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            body {
+                background-image: url(neymar-brazil-2022-1668947300-97010.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+    
+            form > * {
+                display: block;
+                padding: 10px;
+                margin-left: 10px;
+            }
+    
+            #nao {
+                display: flex;
+                flex-direction: column;
+            }
+    
+            #ah{
+                text-align: center;
+                margin-bottom: 10px;
+                padding: 20px;
+                opacity: 1;
+            }
+            #abacate {
+                display: block;
+                margin: auto;
+                background-color: darkblue;
+                width: 50vw;
+                height: calc(100vh - 160px);
+                border-radius: 10px;
+                box-shadow: 10px 10px 0 5px #212121;
+                color: white;
+            }
+    
+            #ney {
+                width: 100%;
+                height: 100vh;
+            }
+            .aiai{
+                opacity: 1;
+            }
+        </style>
+</head>
+<body>
+    <div id="nao">
+        <div id="ah">
+        <h1>Calculadora de Bhaskara do NeyNey</h1>
+        </div>
+        <div id="abacate">
+    <form action="">
+        <div class="aiai">
+            <label for="ValorA">Valor "A":</label>
+            <input type="number" id="ValorA">
+        </div>
+        <div class="aiai">
+            <label for="ValorB">Valor "B":</label>
+            <input type="number" id="ValorB">
+        </div>
+        <div class="aiai">
+            <label for="ValorB">Valor "C":</label>
+            <input type="number" id="ValorC">
+        </div>
+        <div class="aiai">
+            <div id="Soma"></div>
+            <div id="Somaa"></div>
+        </div>
+        <div class="aiai">
+            <input type="button" value="Calcular" onclick="click_calcular()">
+            <input type="button" value="Limpar" onclick="click_limpar()">
+        </div>
+    </form>
+</div>
+    </div>
+</body>
+</html>
